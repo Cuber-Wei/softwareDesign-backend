@@ -13,11 +13,11 @@ import com.l0v3ch4n.oj.exception.ThrowUtils;
 import com.l0v3ch4n.oj.model.dto.writeup.WriteUpAddRequest;
 import com.l0v3ch4n.oj.model.dto.writeup.WriteUpQueryRequest;
 import com.l0v3ch4n.oj.model.dto.writeup.WriteUpUpdateRequest;
-import com.l0v3ch4n.oj.model.entity.WriteUp;
 import com.l0v3ch4n.oj.model.entity.User;
+import com.l0v3ch4n.oj.model.entity.WriteUp;
 import com.l0v3ch4n.oj.model.vo.WriteUpVO;
-import com.l0v3ch4n.oj.service.WriteUpService;
 import com.l0v3ch4n.oj.service.UserService;
+import com.l0v3ch4n.oj.service.WriteUpService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
@@ -165,7 +165,7 @@ public class WriteUpController {
      */
     @PostMapping("/list/page/vo")
     public BaseResponse<Page<WriteUpVO>> listWriteUpVOByPage(@RequestBody WriteUpQueryRequest writeUpQueryRequest,
-                                                       HttpServletRequest request) {
+                                                             HttpServletRequest request) {
         long current = writeUpQueryRequest.getCurrent();
         long size = writeUpQueryRequest.getPageSize();
         // 限制爬虫
@@ -184,7 +184,7 @@ public class WriteUpController {
      */
     @PostMapping("/my/list/page/vo")
     public BaseResponse<Page<WriteUpVO>> listMyWriteUpVOByPage(@RequestBody WriteUpQueryRequest writeUpQueryRequest,
-                                                         HttpServletRequest request) {
+                                                               HttpServletRequest request) {
         if (writeUpQueryRequest == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
@@ -210,7 +210,7 @@ public class WriteUpController {
      */
     @PostMapping("/search/page/vo")
     public BaseResponse<Page<WriteUpVO>> searchWriteUpVOByPage(@RequestBody WriteUpQueryRequest writeUpQueryRequest,
-                                                         HttpServletRequest request) {
+                                                               HttpServletRequest request) {
         long size = writeUpQueryRequest.getPageSize();
         // 限制爬虫
         ThrowUtils.throwIf(size > 20, ErrorCode.PARAMS_ERROR);

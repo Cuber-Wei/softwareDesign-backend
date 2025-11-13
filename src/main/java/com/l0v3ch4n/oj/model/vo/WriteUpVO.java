@@ -15,56 +15,47 @@ import java.util.List;
 @Data
 public class WriteUpVO implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     /**
      * 题解id
      */
     private Long writeUpId;
-
     /**
      * 创建用户 id
      */
     private Long userId;
-
     /**
      * 题目 id
      */
     private Long questionId;
-
     /**
      * 标题
      */
     private String title;
-
     /**
      * 内容
      */
     private String content;
-
     /**
      * 审核状态
      */
     private Integer reviewStatus;
-
     /**
      * id
      */
     private Long id;
-
     /**
      * 创建时间
      */
     private Date createTime;
-
     /**
      * 更新时间
      */
     private Date updateTime;
-
     /**
      * 标签列表
      */
     private List<String> tag;
-
     /**
      * 创建人信息
      */
@@ -102,6 +93,4 @@ public class WriteUpVO implements Serializable {
         writeUpVO.setTag(JSONUtil.toList(writeUp.getTag(), String.class));
         return writeUpVO;
     }
-
-    private static final long serialVersionUID = 1L;
 }

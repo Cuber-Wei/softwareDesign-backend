@@ -15,13 +15,11 @@ import com.l0v3ch4n.oj.model.dto.post.PostEsDTO;
 import com.l0v3ch4n.oj.model.dto.post.PostQueryRequest;
 import com.l0v3ch4n.oj.model.entity.Post;
 import com.l0v3ch4n.oj.model.entity.User;
+import com.l0v3ch4n.oj.model.vo.PostVO;
+import com.l0v3ch4n.oj.model.vo.UserVO;
 import com.l0v3ch4n.oj.service.PostService;
 import com.l0v3ch4n.oj.service.UserService;
 import com.l0v3ch4n.oj.utils.SqlUtils;
-import com.l0v3ch4n.oj.model.entity.PostFavour;
-import com.l0v3ch4n.oj.model.entity.PostThumb;
-import com.l0v3ch4n.oj.model.vo.PostVO;
-import com.l0v3ch4n.oj.model.vo.UserVO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -40,7 +38,10 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**

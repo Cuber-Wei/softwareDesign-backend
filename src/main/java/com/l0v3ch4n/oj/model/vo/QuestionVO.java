@@ -18,47 +18,40 @@ import java.util.List;
 @Data
 public class QuestionVO implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     /**
      * id
      */
     @TableId(type = IdType.ASSIGN_ID)
     private Long questionId;
-
     /**
      * 创建用户 id
      */
     private Long userId;
-
     /**
      * 标题
      */
     private String title;
-
     /**
      * 内容
      */
     private String content;
-
     /**
      * 标签列表
      */
     private List<String> tag;
-
     /**
      * 判题配置（json 对象）
      */
     private JudgeConfig judgeConfig;
-
     /**
      * 创建时间
      */
     private Date createTime;
-
     /**
      * 更新时间
      */
     private Date updateTime;
-
     /**
      * 创建题目人的信息
      */
@@ -105,6 +98,4 @@ public class QuestionVO implements Serializable {
         questionVO.setJudgeConfig(JSONUtil.toBean(judgeConfigStr, JudgeConfig.class));
         return questionVO;
     }
-
-    private static final long serialVersionUID = 1L;
 }

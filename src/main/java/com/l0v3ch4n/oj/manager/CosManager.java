@@ -1,9 +1,9 @@
 package com.l0v3ch4n.oj.manager;
 
+import com.l0v3ch4n.oj.config.CosClientConfig;
 import com.qcloud.cos.COSClient;
 import com.qcloud.cos.model.PutObjectRequest;
 import com.qcloud.cos.model.PutObjectResult;
-import com.l0v3ch4n.oj.config.CosClientConfig;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

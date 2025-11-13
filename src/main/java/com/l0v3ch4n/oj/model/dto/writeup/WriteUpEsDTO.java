@@ -23,51 +23,42 @@ import java.util.List;
 public class WriteUpEsDTO implements Serializable {
 
     private static final String DATE_TIME_PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
-
+    private static final long serialVersionUID = 1L;
     /**
      * id
      */
     @Id
     private Long writeUpId;
-
     /**
      * 标题
      */
     private String title;
-
     /**
      * 内容
      */
     private String content;
-
     /**
      * 标签列表
      */
     private List<String> tag;
-
     /**
      * 创建用户 id
      */
     private Long userId;
-
     /**
      * 创建时间
      */
     @Field(index = false, store = true, type = FieldType.Date, format = {}, pattern = DATE_TIME_PATTERN)
     private Date createTime;
-
     /**
      * 更新时间
      */
     @Field(index = false, store = true, type = FieldType.Date, format = {}, pattern = DATE_TIME_PATTERN)
     private Date updateTime;
-
     /**
      * 是否删除
      */
     private Integer isDelete;
-
-    private static final long serialVersionUID = 1L;
 
     /**
      * 对象转包装类

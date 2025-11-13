@@ -15,46 +15,39 @@ import java.util.List;
 @Data
 public class PostVO implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     /**
      * id
      */
     private Long postId;
-
     /**
      * 创建用户 id
      */
     private Long userId;
-
     /**
      * 标题
      */
     private String title;
-
     /**
      * 内容
      */
     private String content;
-
     /**
      * 标签列表 json
      */
     private List<String> tag;
-
     /**
      * 审核状态
      */
     private Integer reviewStatus;
-
     /**
      * 创建时间
      */
     private Date createTime;
-
     /**
      * 更新时间
      */
     private Date updateTime;
-
     /**
      * 创建人信息
      */
@@ -92,6 +85,4 @@ public class PostVO implements Serializable {
         postVO.setTag(JSONUtil.toList(post.getTag(), String.class));
         return postVO;
     }
-
-    private static final long serialVersionUID = 1L;
 }

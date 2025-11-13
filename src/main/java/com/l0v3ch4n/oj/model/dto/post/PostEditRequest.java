@@ -11,25 +11,21 @@ import java.util.List;
 @Data
 public class PostEditRequest implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     /**
      * id
      */
     private Long postId;
-
     /**
      * 标题
      */
     private String title;
-
     /**
      * 内容
      */
     private String content;
-
     /**
      * 标签列表
      */
     private List<String> tag;
-
-    private static final long serialVersionUID = 1L;
 }
