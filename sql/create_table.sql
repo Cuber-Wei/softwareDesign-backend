@@ -117,3 +117,6 @@ create table if not exists verity_code
     isDelete   tinyint  default 0                 not null comment '是否删除',
     index idx_userId (userId)
 ) comment '验证码' collate = utf8mb4_unicode_ci;
+
+INSERT INTO `user` (`userId`, `userAccount`, `userPassword`, `unionId`, `mpOpenId`, `userName`, `userAvatar`, `userProfile`, `userPhone`, `userMail`, `userRole`, `createTime`, `updateTime`, `isDelete`) VALUES
+    (1855858177690660865, 'admin', '2dea76c10c63f5fd1d236e6a5578a68e', NULL, NULL, '管理员', NULL, '这里是管理员', '18257550746', 'cuberwei0@163.com', 'admin', '2024-11-11 14:20:44', '2024-11-12 11:13:15', 0);

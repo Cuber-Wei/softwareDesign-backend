@@ -8,9 +8,7 @@ import com.l0v3ch4n.oj.common.ErrorCode;
 import com.l0v3ch4n.oj.constant.CommonConstant;
 import com.l0v3ch4n.oj.exception.BusinessException;
 import com.l0v3ch4n.oj.exception.ThrowUtils;
-import com.l0v3ch4n.oj.mapper.PostFavourMapper;
 import com.l0v3ch4n.oj.mapper.PostMapper;
-import com.l0v3ch4n.oj.mapper.PostThumbMapper;
 import com.l0v3ch4n.oj.model.dto.post.PostEsDTO;
 import com.l0v3ch4n.oj.model.dto.post.PostQueryRequest;
 import com.l0v3ch4n.oj.model.entity.Post;
@@ -53,12 +51,6 @@ public class PostServiceImpl extends ServiceImpl<PostMapper, Post> implements Po
 
     @Resource
     private UserService userService;
-
-    @Resource
-    private PostThumbMapper postThumbMapper;
-
-    @Resource
-    private PostFavourMapper postFavourMapper;
 
     @Resource
     private ElasticsearchRestTemplate elasticsearchRestTemplate;

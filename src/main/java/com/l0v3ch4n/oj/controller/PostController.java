@@ -7,6 +7,7 @@ import com.l0v3ch4n.oj.common.BaseResponse;
 import com.l0v3ch4n.oj.common.DeleteRequest;
 import com.l0v3ch4n.oj.common.ErrorCode;
 import com.l0v3ch4n.oj.common.ResultUtils;
+import com.l0v3ch4n.oj.constant.AuditConstant;
 import com.l0v3ch4n.oj.constant.UserConstant;
 import com.l0v3ch4n.oj.exception.BusinessException;
 import com.l0v3ch4n.oj.exception.ThrowUtils;
@@ -26,6 +27,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * 帖子接口
@@ -64,6 +66,7 @@ public class PostController {
         postService.validPost(post, true);
         User loginUser = userService.getLoginUser(request);
         post.setUserId(loginUser.getUserId());
+        post.setReviewStatus(AuditConstant.PENDING);
         boolean result = postService.save(post);
         ThrowUtils.throwIf(!result, ErrorCode.OPERATION_ERROR);
         long newPostId = post.getPostId();
@@ -135,7 +138,7 @@ public class PostController {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
         Post post = postService.getById(id);
-        if (post == null) {
+        if (post == null || !Objects.equals(post.getReviewStatus(), AuditConstant.PASSED)) {
             throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
         }
         return ResultUtils.success(postService.getPostVO(post, request));

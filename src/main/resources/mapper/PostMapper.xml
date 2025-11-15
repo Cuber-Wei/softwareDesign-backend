@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="generator.mapper.PostMapper">
+<mapper namespace="com.l0v3ch4n.oj.mapper.PostMapper">
 
     <resultMap id="BaseResultMap" type="com.l0v3ch4n.oj.model.entity.Post">
             <id property="postId" column="postId" jdbcType="BIGINT"/>

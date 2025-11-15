@@ -7,6 +7,7 @@ import com.l0v3ch4n.oj.common.BaseResponse;
 import com.l0v3ch4n.oj.common.DeleteRequest;
 import com.l0v3ch4n.oj.common.ErrorCode;
 import com.l0v3ch4n.oj.common.ResultUtils;
+import com.l0v3ch4n.oj.constant.AuditConstant;
 import com.l0v3ch4n.oj.constant.UserConstant;
 import com.l0v3ch4n.oj.exception.BusinessException;
 import com.l0v3ch4n.oj.exception.ThrowUtils;
@@ -25,6 +26,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * 题解接口
@@ -63,6 +65,7 @@ public class WriteUpController {
         writeUpService.validWriteUp(writeUp, true);
         User loginUser = userService.getLoginUser(request);
         writeUp.setUserId(loginUser.getUserId());
+        writeUp.setReviewStatus(AuditConstant.PENDING);
         boolean result = writeUpService.save(writeUp);
         ThrowUtils.throwIf(!result, ErrorCode.OPERATION_ERROR);
         long newWriteUpId = writeUp.getWriteUpId();
@@ -134,7 +137,7 @@ public class WriteUpController {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
         WriteUp writeUp = writeUpService.getById(id);
-        if (writeUp == null) {
+        if (writeUp == null || !Objects.equals(writeUp.getReviewStatus(), AuditConstant.PASSED)) {
             throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
         }
         return ResultUtils.success(writeUpService.getWriteUpVO(writeUp, request));

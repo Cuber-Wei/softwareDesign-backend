@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="generator.mapper.PostCommentMapper">
+<mapper namespace="com.l0v3ch4n.oj.mapper.PostCommentMapper">
 
     <resultMap id="BaseResultMap" type="com.l0v3ch4n.oj.model.entity.PostComment">
             <id property="postCommentId" column="postCommentId" jdbcType="BIGINT"/>
@@ -20,4 +20,5 @@
         content,reviewStatus,createTime,
         updateTime,isDelete
     </sql>
+    <select id="listCommentPostByPage" resultType="com.l0v3ch4n.oj.model.entity.Post"></select>
 </mapper>
